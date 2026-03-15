@@ -13,19 +13,12 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-8 py-6 flex justify-between items-center">
         <div className="flex items-center gap-2">
           <h1 className="text-2xl font-bold font-syne text-white">
-            RESEARCH AND INNOVATION AFFAIRS<span className="text-[#2d6be4]">COUNCIL</span>
+            RESEARCH AND INNOVATION AFFAIRS <span className="text-[#2d6be4]">COUNCIL</span>
           </h1>
         </div>
         
         <ul className="hidden md:flex gap-8">
-          <li>
-            <button
-              onClick={() => scrollToSection('submit-form')}
-              className="text-gray-300 hover:text-white transition font-dm-sans"
-            >
-              Submit Idea
-            </button>
-          </li>
+    
           <li>
             <button
               onClick={() => scrollToSection('professor-directory')}

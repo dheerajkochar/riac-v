@@ -8,6 +8,7 @@ import ProfessorCard from './ProfessorCard';
 export default function ProfessorDirectory() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedField, setSelectedField] = useState<string>('all');
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
 
   const filteredProfessors = useMemo(() => {
     let results = professorsData;
@@ -35,6 +36,8 @@ export default function ProfessorDirectory() {
 
   const uniqueFields = ['all', ...fieldsData.map(f => f.id)];
 
+  const shouldShowFilters = !isSearchFocused && !searchQuery.trim();
+
   return (
     <section id="professor-directory" className="bg-white py-20 px-8">
       <div className="max-w-6xl mx-auto">
@@ -49,27 +52,31 @@ export default function ProfessorDirectory() {
             placeholder="Search by name, department, or field..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            onFocus={() => setIsSearchFocused(true)}
+            onBlur={() => setIsSearchFocused(false)}
             className="w-full px-6 py-4 border-2 border-[#e0e0e0] rounded-lg focus:outline-none focus:border-[#2d6be4] font-dm-sans"
           />
           <span className="absolute right-4 top-4 text-2xl">🔍</span>
         </div>
 
         {/* Filter Chips */}
-        <div className="flex flex-wrap gap-3 mb-8">
-          {uniqueFields.map(field => (
-            <button
-              key={field}
-              onClick={() => setSelectedField(field)}
-              className={`px-4 py-2 rounded-full font-dm-sans font-medium transition ${
-                selectedField === field
-                  ? 'bg-[#2d6be4] text-white'
-                  : 'bg-[#f5f3ee] text-[#1a1a1a] border border-[#e0e0e0] hover:border-[#2d6be4]'
-              }`}
-            >
-              {field === 'all' ? 'All Fields' : getFieldLabel(field)}
-            </button>
-          ))}
-        </div>
+        {shouldShowFilters && (
+          <div className="flex flex-wrap gap-3 mb-8">
+            {uniqueFields.map(field => (
+              <button
+                key={field}
+                onClick={() => setSelectedField(field)}
+                className={`px-4 py-2 rounded-full font-dm-sans font-medium transition ${
+                  selectedField === field
+                    ? 'bg-[#2d6be4] text-white'
+                    : 'bg-[#f5f3ee] text-[#1a1a1a] border border-[#e0e0e0] hover:border-[#2d6be4]'
+                }`}
+              >
+                {field === 'all' ? 'All Fields' : getFieldLabel(field)}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Professors Grid */}
         {filteredProfessors.length > 0 ? (

@@ -6,9 +6,32 @@ interface ProfessorCardProps {
   professor: Professor;
 }
 
+const getDepartmentUrl = (dept: string): string => {
+  const mapping: { [key: string]: string } = {
+    "Computer Science & Engineering": "computer",
+    "Mechanical Engineering": "Mechanical",
+    "Civil Engineering": "civil",
+    "Electronics & Communication Engineering": "Electronics",
+    "Electrical Engineering": "electrical",
+    "Chemical Engineering": "chemical",
+    "Physics": "physics",
+    "Applied Mathematics and Humanities": "applied-mathematics",
+    // Add more mappings as needed
+  };
+  const slug = mapping[dept];
+  return slug ? `https://www.svnit.ac.in/web/department/${slug}/faculty.php` : '#';
+};
+
 export default function ProfessorCard({ professor }: ProfessorCardProps) {
+  const handleCardClick = () => {
+    const url = getDepartmentUrl(professor.dept);
+    if (url !== '#') {
+      window.open(url, '_blank');
+    }
+  };
+
   return (
-    <div className="bg-white border border-[#e0e0e0] rounded-xl p-6 hover:shadow-2xl hover:border-[#2d6be4] transition-all">
+    <div className="bg-white border border-[#e0e0e0] rounded-xl p-6 hover:shadow-2xl hover:border-[#2d6be4] transition-all cursor-pointer" onClick={handleCardClick}>
       {/* Avatar */}
      
 

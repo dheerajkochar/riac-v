@@ -40,17 +40,14 @@ export default function Hero() {
         {/* Right Side - Stats */}
         <div className="grid grid-cols-2 gap-4">
           <div className="bg-white p-8 rounded-xl shadow-md text-center">
-            <div className="text-4xl font-bold font-syne text-[#2d6be4]">79+</div>
+            <div className="text-4xl font-bold font-syne text-[#2d6be4]">234+</div>
             <div className="text-gray-600 font-dm-sans mt-2">Professors</div>
           </div>
           <div className="bg-white p-8 rounded-xl shadow-md text-center">
-            <div className="text-4xl font-bold font-syne text-[#2d6be4]">16</div>
+            <div className="text-4xl font-bold font-syne text-[#2d6be4]">30+</div>
             <div className="text-gray-600 font-dm-sans mt-2">Research Fields</div>
           </div>
-          <div className="bg-white p-8 rounded-xl shadow-md text-center md:col-span-2">
-            <div className="text-4xl font-bold font-syne text-[#2d6be4]">4</div>
-            <div className="text-gray-600 font-dm-sans mt-2">Engineering Departments</div>
-          </div>
+     
         </div>
       </div>
     </section>
