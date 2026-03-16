@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Syne, DM_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import Footer from '../components/Footer'
 
 const syne = Syne({ subsets: ["latin"], variable: '--font-syne' });
 const dmSans = DM_Sans({ subsets: ["latin"], variable: '--font-dm-sans' });
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang="en" className={`${syne.variable} ${dmSans.variable}`}>
       <body className="font-dm-sans antialiased">
         {children}
+        <Footer />
         <Analytics />
       </body>
     </html>
