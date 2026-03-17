@@ -65,18 +65,24 @@ export default function ProfessorCard({ professor }: ProfessorCardProps) {
 
       {/* Contact Buttons */}
       <div className="flex gap-2">
-        <a
-          href={`mailto:${professor.email}`}
-          className="flex-1 bg-[#2d6be4] hover:bg-blue-700 text-white text-sm py-2 rounded-lg transition text-center font-dm-sans font-medium"
-        >
-          Email
-        </a>
-        <a
-          href={`tel:${professor.phone}`}
-          className="flex-1 border border-[#2d6be4] text-[#2d6be4] hover:bg-blue-50 text-sm py-2 rounded-lg transition text-center font-dm-sans font-medium"
-        >
-          Call
-        </a>
+        {professor.email && (
+          <a
+            href={`mailto:${professor.email}`}
+            onClick={(e) => e.stopPropagation()}
+            className="flex-1 bg-[#2d6be4] hover:bg-blue-700 text-white text-sm py-2 rounded-lg transition text-center font-dm-sans font-medium"
+          >
+            Email
+          </a>
+        )}
+        {professor.phone && (
+          <a
+            href={`tel:${professor.phone}`}
+            onClick={(e) => e.stopPropagation()}
+            className="flex-1 border border-[#2d6be4] text-[#2d6be4] hover:bg-blue-50 text-sm py-2 rounded-lg transition text-center font-dm-sans font-medium"
+          >
+            Call
+          </a>
+        )}
       </div>
     </div>
   );
