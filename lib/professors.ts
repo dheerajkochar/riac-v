@@ -6,8 +6,8 @@ export interface Professor {
   fields: string[];
   tags: string[];
   bio: string;
-  email: string;
-  phone: string;
+  email?: string;
+  phone?: string;
   avatar: number;
 }
 

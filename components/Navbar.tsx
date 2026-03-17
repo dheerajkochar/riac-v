@@ -10,9 +10,9 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 bg-[#0d0d12] shadow-lg">
-      <div className="max-w-6xl mx-auto px-8 py-6 flex justify-between items-center">
+      <div className="max-w-6xl mx-auto px-8 py-3 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <h1 className="text-2xl font-bold font-syne text-white">
+          <h1 className="text-xl font-bold font-syne text-white">
             RESEARCH AND INNOVATION AFFAIRS <span className="text-[#2d6be4]">COUNCIL</span>
           </h1>
         </div>
@@ -37,12 +37,7 @@ export default function Navbar() {
           </li>
         </ul>
 
-        <button
-          onClick={() => scrollToSection('submit-form')}
-          className="bg-[#2d6be4] hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition font-dm-sans font-medium"
-        >
-          Find a Mentor
-        </button>
+       
       </div>
     </nav>
   );

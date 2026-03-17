@@ -6,35 +6,9 @@ interface ProfessorCardProps {
   professor: Professor;
 }
 
-const getDepartmentUrl = (dept: string): string => {
-  const mapping: { [key: string]: string } = {
-    "Computer Science & Engineering": "computer",
-    "Mechanical Engineering": "Mechanical",
-    "Civil Engineering": "civil",
-    "Electronics & Communication Engineering": "Electronics",
-    "Electrical Engineering": "electrical",
-    "Chemical Engineering": "chemical",
-    "Physics": "physics",
-    "Applied Mathematics and Humanities": "applied-mathematics",
-    // Add more mappings as needed
-  };
-  const slug = mapping[dept];
-  return slug ? `https://www.svnit.ac.in/web/department/${slug}/faculty.php` : '#';
-};
-
 export default function ProfessorCard({ professor }: ProfessorCardProps) {
-  const handleCardClick = () => {
-    const url = getDepartmentUrl(professor.dept);
-    if (url !== '#') {
-      window.open(url, '_blank');
-    }
-  };
-
   return (
-    <div className="bg-white border border-[#e0e0e0] rounded-xl p-6 hover:shadow-2xl hover:border-[#2d6be4] transition-all cursor-pointer" onClick={handleCardClick}>
-      {/* Avatar */}
-     
-
+    <div className="bg-white border border-[#e0e0e0] rounded-xl p-6 hover:shadow-2xl hover:border-[#2d6be4] transition-all group">
       {/* Name & Role */}
       <h3 className="text-xl font-bold font-syne text-[#1a1a1a] mb-1">
         {professor.name}
@@ -65,23 +39,30 @@ export default function ProfessorCard({ professor }: ProfessorCardProps) {
 
       {/* Contact Buttons */}
       <div className="flex gap-2">
-        {professor.email && (
+        {professor.email && professor.email.trim().length > 0 ? (
           <a
-            href={`mailto:${professor.email}`}
-            onClick={(e) => e.stopPropagation()}
+            href={`mailto:${encodeURIComponent(professor.email.trim())}`}
             className="flex-1 bg-[#2d6be4] hover:bg-blue-700 text-white text-sm py-2 rounded-lg transition text-center font-dm-sans font-medium"
           >
             Email
           </a>
+        ) : (
+          <div className="flex-1 bg-gray-300 text-gray-600 text-sm py-2 rounded-lg text-center font-dm-sans font-medium">
+            No Email
+          </div>
         )}
-        {professor.phone && (
+        
+        {professor.phone && professor.phone.trim().length > 0 ? (
           <a
-            href={`tel:${professor.phone}`}
-            onClick={(e) => e.stopPropagation()}
+            href={`tel:${encodeURIComponent(professor.phone.trim())}`}
             className="flex-1 border border-[#2d6be4] text-[#2d6be4] hover:bg-blue-50 text-sm py-2 rounded-lg transition text-center font-dm-sans font-medium"
           >
             Call
           </a>
+        ) : (
+          <div className="flex-1 border border-gray-300 text-gray-600 text-sm py-2 rounded-lg text-center font-dm-sans font-medium">
+            No Phone
+          </div>
         )}
       </div>
     </div>
