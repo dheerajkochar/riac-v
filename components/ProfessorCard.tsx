@@ -41,7 +41,7 @@ export default function ProfessorCard({ professor }: ProfessorCardProps) {
       <div className="flex gap-2">
         {professor.email && professor.email.trim().length > 0 ? (
           <a
-            href={`mailto:${encodeURIComponent(professor.email.trim())}`}
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${professor.email}`}
             className="flex-1 bg-[#2d6be4] hover:bg-blue-700 text-white text-sm py-2 rounded-lg transition text-center font-dm-sans font-medium"
           >
             Email
