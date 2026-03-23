@@ -3,7 +3,7 @@ import { Syne, DM_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import Footer from '../components/Footer'
-
+import { GoogleAnalytics } from '@next/third-parties/google'
 const syne = Syne({ subsets: ["latin"], variable: '--font-syne' });
 const dmSans = DM_Sans({ subsets: ["latin"], variable: '--font-dm-sans' });
 
@@ -25,6 +25,7 @@ export default function RootLayout({
     <html lang="en" className={`${syne.variable} ${dmSans.variable}`}>
       <body className="font-dm-sans antialiased">
         {children}
+         <GoogleAnalytics gaId="G-6HFK2LM5N4" />
         <Footer />
         <Analytics />
       </body>

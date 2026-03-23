@@ -13,7 +13,7 @@ export default function Footer() {
             </p>
           </div>
           <div className="flex items-center space-x-6 text-xs text-gray-400 dark:text-gray-500">
-            <span>© 2026 IdeaConnect</span>
+            <span>© 2026 RIAC IdeaConnect</span>
             <span>•</span>
             <span>All rights reserved</span>
           </div>
