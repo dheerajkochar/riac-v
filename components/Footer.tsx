@@ -6,7 +6,7 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-center space-y-4">
           <div className="text-center">
             <p className="text-sm font-medium text-gray-300 dark:text-gray-400 mb-2">
-              Built with ❤️ for innovation
+              Built for innovation
             </p>
             <p className="text-base font-semibold text-white dark:text-gray-200">
               Developed by <span className="text-blue-400 dark:text-blue-300 hover:text-blue-300 dark:hover:text-blue-200 transition-colors duration-200">Dheeraj Kochar</span>
